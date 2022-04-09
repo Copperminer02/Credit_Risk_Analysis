@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
+# challange Data
+LoanStats_2019Q1.csv
+
 # C extensions
 *.so
 
