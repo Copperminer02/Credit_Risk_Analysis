@@ -41,6 +41,7 @@ Supplied with loan statistcs from first quarter 2019, I've been asked to utilize
   *  Balance Accuracy Score - overall model accurately predicts low and high risk categories 54.4% of instances.
   *  Precision scores - high risk precision 0.007; low risk precision 0.995.  
   *  recall scores - high risk 0.693; low risk 0.395
+  *  Result Summary - Lower accuracy compared to over sampling methods.  No noticeable improvement for high risk sensitivity, low risk sensisitivity worse than oversampling, about 30% more good loans were classified as high risk compared to oversampling methods.
 
 4.  **SMOTEEN**
 ![image](https://user-images.githubusercontent.com/91850824/162634753-e0364ddd-c712-4ba1-ba22-3ed784509bba.png)
@@ -48,6 +49,7 @@ Supplied with loan statistcs from first quarter 2019, I've been asked to utilize
   *  Balance Accuracy Score - overall model accurately predicts low and high risk categories 63.9% of instances.
   *  Precision scores - high risk precision 0.01; low risk precision 0.997.    
   *  recall scores - high risk 0.703; low risk 0.574
+  *  Result Summary - Accuracy comparable to random over sampling, no noticeable change to precision, high risk sensitity imporved.  Low risk sensitivity comparable to oversampling, but slightly lower.
 
 5.  **Balanced Random Forest Classifier**
 ![image](https://user-images.githubusercontent.com/91850824/162634757-0c868998-a9a4-4ede-b469-8a253f8b5436.png)
@@ -55,10 +57,17 @@ Supplied with loan statistcs from first quarter 2019, I've been asked to utilize
   *  Balance Accuracy Score - overall model accurately predicts low and high risk categories 78.87% of instances.
   *  Precision scores - high risk precision 0.03; low risk precision 0.998.   
   *  recall scores - high risk 0.703; low risk 0.871
+  *  Result Summary - Noticeably high accuracy and precision for high risk class (still not great at 0.03, low F1 value 0.06).  Recall scores for imporved for both classes.  This is the strongest model compared to the over, under, and combination methods detailed above.
+
 6.  **Easy Ensemble AdaBoost Classifier**
 ![image](https://user-images.githubusercontent.com/91850824/162634759-f77548fd-cc2b-431d-8064-39e618ae1102.png)
 
   *  Balance Accuracy Score - overall model accurately predicts low and high risk categories 93.2% of instances.
   *  Precision scores - high risk precision 0.09; low risk precision 0.9995.  
   *  recall scores - high risk 0.92.; low risk 0.94.
+  *  Result Summary - All around strongest model performance.  The accuracy sits at an unreal 93.2% with increased precision and recall compared to all other models.  F1 value for high risk groups also increased to 0.16 compared to .01-.06 values from other models.
+
+## Summary
+
+Of all of the models tested the **Easy Ensemble AdaBoost Classifier** performed the strongest.  This model has a high accuracy of 93.2%, a high precision for Low Risk and a higher precision for high risk than all other models used.  Due to the low overall sample number for high risk groups it would be unrealistic to require a high precision for high risk on the testing data; however, this model only incorrectly classified 8 of the 101 high risk instances.  Likewise, the low risk recall of 94% indicates that only 6% of the testing data was misclassified for the low risk group.  The application of  **Easy Ensemble AdaBoost Classifier** on this data set appears to reasonably predict high and low risk loans.  Based on the recalls, this method appears to honor both categories and as a predictive tool appears to be up for the task.
   
